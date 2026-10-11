@@ -16,9 +16,10 @@ Static website for Feel Yourself Sugaring, hosted on GitHub Pages. Plain HTML, C
 - `build.py`: generates everything in `docs/` from one script, so the shared header and footer stay in sync. Run `python build.py` after any content change.
 - `media/`: working materials, copied from the `FYS Media` folder in the business Google Drive.
   - `brand/`: logos and favicons (committed)
-  - `photos/`: original phone photos, 300 MB (not committed; copy from Drive when needed)
-  - `old-site/`: banners from the old Google Sites pages (not committed)
-  - `instagram/`: Instagram's official glyph pack (SVG and PNG committed, `.ai` not)
+  - `photos/`: original phone photos from the studio shoots
+  - `old-site/`: banners from the old Google Sites pages
+  - `instagram/`: Instagram's official glyph pack
+  All of it is committed on purpose, as a backup of the Drive folder.
 
 Old URLs like `/our-sugarist` and `/book-now` work unchanged, because GitHub Pages serves `our-sugarist.html` at `/our-sugarist`.
 

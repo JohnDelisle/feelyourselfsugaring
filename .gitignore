@@ -1,9 +1,3 @@
-# Large working media. Originals live in Google Drive (john@feelyourselfsugaring.com > FYS Media).
-# Copy the Drive folder back into media/ (see CLAUDE.md) when you need them.
-media/photos/
-media/old-site/
-*.ai
-
 # OS and editor noise
 Thumbs.db
 .DS_Store

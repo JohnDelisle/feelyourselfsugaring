@@ -6,7 +6,7 @@ Static website for Feel Yourself Sugaring, a home-based sugaring business in Win
 
 - `docs/` is the published site, served by GitHub Pages from `main` + `/docs`. Everything in it except `images/`, `favicon.png`, `apple-touch-icon.png`, `styles.css`, `script.js` and `.nojekyll` is generated.
 - `build.py` at the root generates `docs/`. `media/` holds working materials. `README.md` and this file stay at the root.
-- `media/photos/` and `media/old-site/` are gitignored (360 MB of originals). They come from the business Google Drive, account john@feelyourselfsugaring.com, folder `FYS Media`. If they're missing locally, ask John to copy the Drive folder down again, or use the Google Drive connector with that account for small files only (it returns base64 text, so anything over ~100 KB is impractical).
+- All of `media/` is committed, about 400 MB, on purpose: John wants the artifacts kept together in case the Google Drive copy is lost one day. The source was the business Google Drive, account john@feelyourselfsugaring.com, folder `FYS Media`. Don't add a gitignore for it.
 
 ## Rules
 
