@@ -10,7 +10,7 @@ Static website for Feel Yourself Sugaring, a home-based sugaring business in Win
 - `styles.css` holds all styling. Colours and fonts are CSS variables at the top.
 - Page filenames match the old Google Sites URLs (`/our-sugarist`, `/book-now`, etc.). Don't rename them. `home.html` and `why-us.html` are redirects for old links.
 - Booking happens by text (204-557-5197) plus an embedded Google Form for the client profile.
-- Photos go in `images/` (`pamela.jpg`, `studio-1.jpg`, `studio-2.jpg`, `studio-3.jpg`). Missing photos show labelled placeholders.
+- Photos go in `images/` (`pamela.jpg`, `studio-1.jpg`, `studio-2.jpg`, `studio-3.jpg`). Missing photos show labelled placeholders. All four were pulled from the old Google Sites pages on 2026-10-10. `logo.png` (brand mark) and `sugaring-hero.jpg` (old home banner) are also there but unused so far.
 
 ## Hosting
 
@@ -21,4 +21,3 @@ Static website for Feel Yourself Sugaring, a home-based sugaring business in Win
 ## Open to-dos
 
 - Real Instagram URL (`INSTAGRAM` placeholder at the top of `build.py`).
-- Add photos to `images/`.
