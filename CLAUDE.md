@@ -16,6 +16,7 @@ Static website for Feel Yourself Sugaring, a home-based sugaring business in Win
 - `docs/styles.css` holds all styling. Colours and fonts are CSS variables at the top, with the alternate themes right below them.
 - Page filenames match the old Google Sites URLs (`/our-sugarist`, `/book-now`, etc.). Don't rename them. `home.html` and `why-us.html` are redirects for old links. `prices.html` and `new-clients.html` are new pages added in October 2026.
 - Booking happens by text (204-557-5197) plus an embedded Google Form for the client profile.
+- Google: the public Maps listing is `MAPS` in `build.py` (CID link; 5.0 stars, 27 reviews as of 2026-10-11) and the write-a-review short link is `REVIEW` (from the Business Profile's "Ask for reviews" dialog). John's Business Profile dashboard is https://business.google.com/n/540640849903216367/profile (signed-in only; never link to it).
 - Photos go in `docs/images/` (`pamela.jpg`, `studio-1.jpg`, `studio-2.jpg`, `studio-3.jpg`). Missing photos show labelled placeholders. All four were cropped from the old Google Sites pages on 2026-10-10; full-resolution originals are in `media/photos/`. `logo.png` (hearts, on black), `logo-hips.png` (the second logo: a hips silhouette with "FYS") and `sugaring-hero.jpg` (old home banner) are also there but unused by the pages so far.
 - Brand: two logos (hearts and hips), both by Pamela, in `media/brand/`. Brand colours from the old site's CSS: near-black #1C1C1C, blush #FACBD0, hot pink #F385AA, white; teal #1A9DA8 appears in the old banners. The favicon is Pamela's hearts mark.
 
@@ -47,5 +48,4 @@ Most clients find Pamela through Google Maps while searching for sugaring or hai
 - Which theme and which prices layout to keep, and whether to use the hips logo anywhere.
 - Cancellation, lateness and payment policies, parking and entry instructions, and age policy for tweens: none of these are on the old site, so the new-client page doesn't state them.
 - The step-by-step description of what happens during an appointment on `new-clients.html` is written from standard sugaring practice and should be checked against what Pamela actually does.
-- The Google Business Profile / Maps link, for a "leave a review" link and schema.
 - The 2024 pricing spreadsheet in Drive lists services the site doesn't (hydrojelly mask add-on, skin treatments, PCOS facial, five-session packages, first-visit aftercare gift). Are any still offered?

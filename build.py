@@ -9,6 +9,8 @@ SITE = "https://www.feelyourselfsugaring.com/"
 PHONE_HREF = "sms:+12045575197"
 PHONE = "204-557-5197"
 INSTAGRAM = "https://www.instagram.com/feelyourselfsugaring/"
+MAPS = "https://maps.google.com/?cid=16458464166340835351"          # public Google Maps listing
+REVIEW = "https://g.page/r/CRe4PWf1NWjkEBM/review"                 # "write a review" link from the Business Profile
 FORM = "https://docs.google.com/forms/d/e/1FAIpQLSeQs9sJO3A9PlhY3qhilEIwmsSzeXqD-X9Zkp8nebxhRqmKyg/viewform"
 
 # Brand marks. MARK is the honey sugar blob (pine theme); HEARTS echoes the two-hearts logo (other themes).
@@ -48,13 +50,13 @@ def price_block():
     </div>
     <h3 style="margin-top:3rem">Ways to save</h3>
     <div class="offers">
-      <div class="offer"><h3>Leave a Google review</h3><p>Rate and review us on Google and get $10 off your next service.</p></div>
+      <div class="offer"><h3>Leave a Google review</h3><p>Rate and review us on Google and get $10 off your next service. <a href="{REVIEW}">Write a review</a>.</p></div>
       <div class="offer"><h3>Refer a friend</h3><p>When someone new books on your recommendation, you both get $10 off your next service.</p></div>
     </div>'''
 
 ld = {"@context":"https://schema.org","@type":"BeautySalon","name":"Feel Yourself Sugaring",
       "description":"Home-based body sugaring hair removal in Winnipeg's Charleswood/Tuxedo neighbourhood.",
-      "url":SITE,"telephone":"+1-204-557-5197","sameAs":[INSTAGRAM],
+      "url":SITE,"telephone":"+1-204-557-5197","sameAs":[INSTAGRAM, MAPS],"hasMap":MAPS,
       "founder":{"@type":"Person","name":"Pamela Delisle"},
       "address":{"@type":"PostalAddress","streetAddress":"31 Woodview Bay","addressLocality":"Winnipeg","addressRegion":"MB","addressCountry":"CA"},
       "areaServed":"Winnipeg, MB","priceRange":"$10–$90"}
@@ -205,6 +207,7 @@ def build(outdir, prices_page=False, label=""):
         <h2>Contact</h2>
         <p>Text <a href="{PHONE_HREF}">{PHONE}</a></p>
         <p>31 Woodview Bay, Winnipeg<br>Charleswood/Tuxedo, beside Assiniboine Forest</p>
+        <p><a href="{MAPS}">Open in Google Maps</a></p>
       </div>
       <div>
         <h2>Hours</h2>
@@ -214,6 +217,7 @@ def build(outdir, prices_page=False, label=""):
       <div>
         <h2>Follow</h2>
         <p><a href="{INSTAGRAM}">Instagram</a></p>
+        <p><a href="{REVIEW}">Leave a Google review</a></p>
         <p><a href="book-now.html">Book an appointment</a></p>
       </div>
     </div>
@@ -401,7 +405,7 @@ def build(outdir, prices_page=False, label=""):
     <div>
       <p class="lead">Prices are the same for everyone and include tax. Add-ons start at $10, a Brazilian is $50, and full legs are $90. <a href="{prices_href}">See all prices</a>.</p>
       <p>If cost is what's stopping you, ask about a Wellness Spot. Pamela gives 100% of her tips to clients who want to be sugared but have no self-care budget, and nobody has to prove anything. <a href="wellness-tipping.html">How wellness tipping works</a>.</p>
-      <p>Leave a Google review, or refer a friend, and you get $10 off your next service.</p>
+      <p><a href="{REVIEW}">Leave a Google review</a>, or refer a friend, and you get $10 off your next service.</p>
     </div>
   </div>
 </section>
