@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css">
-<script>document.documentElement.classList.add('js');try{var t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('fys-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>document.documentElement.classList.add('js');try{var q=new URLSearchParams(location.search),d=document.documentElement.dataset;['theme','hero','photos'].forEach(function(k){var v=q.get(k)||localStorage.getItem('fys-'+k);if(v)d[k]=v})}catch(e){}</script>
 </head>
 <body data-variant="prices-page">
 <a class="skip" href="#main">Skip to content</a>
@@ -41,8 +41,13 @@
 <main id="main">
 <section class="page-head">
   <div class="wrap">
-    <h1>New to sugaring? Start here.</h1>
-    <p class="lead">Most people find Pamela while searching for hair removal near them. If that's you, this page explains what sugaring is, what an appointment is like, and how to get ready, so there are no surprises for either of us.</p>
+    <div class="with-photo">
+      <div>
+        <h1>New to sugaring? Start here.</h1>
+        <p class="lead">Most people find Pamela while searching for hair removal near them. If that's you, this page explains what sugaring is, what an appointment is like, and how to get ready, so there are no surprises for either of us.</p>
+      </div>
+      <figure class="photo extra" data-label="Pamela sugaring a client's leg"><img src="../../images/hero-pamela.jpg" alt="Pamela sugaring a client's leg" loading="lazy" onerror="this.parentNode.classList.add('missing');this.remove()"></figure>
+    </div>
   </div>
 </section>
 

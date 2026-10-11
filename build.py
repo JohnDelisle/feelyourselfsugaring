@@ -181,7 +181,7 @@ def build(outdir, prices_page=False, label=""):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{base}styles.css">
-<script>document.documentElement.classList.add('js');try{{var t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('fys-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>{extra_head}
+<script>document.documentElement.classList.add('js');try{{var q=new URLSearchParams(location.search),d=document.documentElement.dataset;['theme','hero','photos'].forEach(function(k){{var v=q.get(k)||localStorage.getItem('fys-'+k);if(v)d[k]=v}})}}catch(e){{}}</script>{extra_head}
 </head>
 <body data-variant="{label}">
 <a class="skip" href="#main">Skip to content</a>
@@ -260,7 +260,15 @@ def build(outdir, prices_page=False, label=""):
       </div>
       <p class="hero-note">New to sugaring? <a href="new-clients.html">Start here</a>.</p>
     </div>
-    <div class="sugar" aria-hidden="true"><div class="blob"></div><div class="shine"></div></div>
+    <div class="hero-art">
+      <div class="sugar hero-opt" data-opt="blob" aria-hidden="true"><div class="blob"></div><div class="shine"></div></div>
+      <img class="hero-opt hero-logo" data-opt="hearts" src="{base}images/logo-hearts.png" alt="" loading="lazy">
+      <img class="hero-opt hero-logo" data-opt="hips" src="{base}images/logo-hips.png" alt="" loading="lazy">
+      <figure class="hero-opt photo" data-opt="pamela"><img src="{base}images/hero-pamela.jpg" alt="Pamela sugaring a client's leg in the studio" loading="lazy"></figure>
+      <figure class="hero-opt photo hero-square" data-opt="sugar"><img src="{base}images/hero-sugar.jpg" alt="A ball of sugar paste in Pamela's hand" loading="lazy"></figure>
+      <figure class="hero-opt photo" data-opt="legs"><img src="{base}images/hero-legs.jpg" alt="Sugar paste being applied to a leg" loading="lazy"></figure>
+      <figure class="hero-opt photo hero-wide" data-opt="studio"><img src="{base}images/studio-1.jpg" alt="The treatment table in the studio" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 
@@ -311,8 +319,13 @@ def build(outdir, prices_page=False, label=""):
      "What sugaring is, what an appointment at Feel Yourself Sugaring is like, and how to get ready for your first visit.",
     f'''<section class="page-head">
   <div class="wrap">
-    <h1>New to sugaring? Start here.</h1>
-    <p class="lead">Most people find Pamela while searching for hair removal near them. If that's you, this page explains what sugaring is, what an appointment is like, and how to get ready, so there are no surprises for either of us.</p>
+    <div class="with-photo">
+      <div>
+        <h1>New to sugaring? Start here.</h1>
+        <p class="lead">Most people find Pamela while searching for hair removal near them. If that's you, this page explains what sugaring is, what an appointment is like, and how to get ready, so there are no surprises for either of us.</p>
+      </div>
+      {photo("hero-pamela.jpg","Pamela sugaring a client's leg","extra")}
+    </div>
   </div>
 </section>
 
@@ -469,8 +482,13 @@ def build(outdir, prices_page=False, label=""):
      "Why sugaring beats waxing and shaving: gentler on skin, fewer ingrown hairs, and results that build over time.",
     f'''<section class="page-head">
   <div class="wrap">
-    <h1>Why sugar?</h1>
-    <p class="lead">Sugaring removes hair with a warm paste of sugar, lemon and water. Here's why people who try it tend to stick with it.</p>
+    <div class="with-photo">
+      <div>
+        <h1>Why sugar?</h1>
+        <p class="lead">Sugaring removes hair with a warm paste of sugar, lemon and water. Here's why people who try it tend to stick with it.</p>
+      </div>
+      {photo("sugar-skin.jpg","Sugar paste on skin, mid-appointment","extra")}
+    </div>
   </div>
 </section>
 <section class="section rule">
@@ -491,7 +509,7 @@ def build(outdir, prices_page=False, label=""):
 </section>
 <section class="section rule">
   <div class="wrap split">
-    <h2>How it works</h2>
+    <div><h2>How it works</h2>{photo("tipping.jpg","Tip money beside a Feel Yourself Sugaring pin","extra wide")}</div>
     <div>
       <p>Wellness services like sugaring should be open to everyone, whatever their budget. So every tip Pamela receives pays for appointments for people who self-declare as having no money for self-care.</p>
       <p>Nobody has to prove anything. If you say you need a spot, that's enough.</p>

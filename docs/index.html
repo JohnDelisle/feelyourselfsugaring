@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js');try{var t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('fys-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>document.documentElement.classList.add('js');try{var q=new URLSearchParams(location.search),d=document.documentElement.dataset;['theme','hero','photos'].forEach(function(k){var v=q.get(k)||localStorage.getItem('fys-'+k);if(v)d[k]=v})}catch(e){}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BeautySalon", "name": "Feel Yourself Sugaring", "description": "Home-based body sugaring hair removal in Winnipeg's Charleswood/Tuxedo neighbourhood.", "url": "https://www.feelyourselfsugaring.com/", "telephone": "+1-204-557-5197", "sameAs": ["https://www.instagram.com/feelyourselfsugaring/"], "founder": {"@type": "Person", "name": "Pamela Delisle"}, "address": {"@type": "PostalAddress", "streetAddress": "31 Woodview Bay", "addressLocality": "Winnipeg", "addressRegion": "MB", "addressCountry": "CA"}, "areaServed": "Winnipeg, MB", "priceRange": "$10–$90"}</script>
 </head>
 <body data-variant="prices-home">
@@ -50,7 +50,15 @@
       </div>
       <p class="hero-note">New to sugaring? <a href="new-clients.html">Start here</a>.</p>
     </div>
-    <div class="sugar" aria-hidden="true"><div class="blob"></div><div class="shine"></div></div>
+    <div class="hero-art">
+      <div class="sugar hero-opt" data-opt="blob" aria-hidden="true"><div class="blob"></div><div class="shine"></div></div>
+      <img class="hero-opt hero-logo" data-opt="hearts" src="images/logo-hearts.png" alt="" loading="lazy">
+      <img class="hero-opt hero-logo" data-opt="hips" src="images/logo-hips.png" alt="" loading="lazy">
+      <figure class="hero-opt photo" data-opt="pamela"><img src="images/hero-pamela.jpg" alt="Pamela sugaring a client's leg in the studio" loading="lazy"></figure>
+      <figure class="hero-opt photo hero-square" data-opt="sugar"><img src="images/hero-sugar.jpg" alt="A ball of sugar paste in Pamela's hand" loading="lazy"></figure>
+      <figure class="hero-opt photo" data-opt="legs"><img src="images/hero-legs.jpg" alt="Sugar paste being applied to a leg" loading="lazy"></figure>
+      <figure class="hero-opt photo hero-wide" data-opt="studio"><img src="images/studio-1.jpg" alt="The treatment table in the studio" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 

@@ -21,13 +21,15 @@ Static website for Feel Yourself Sugaring, a home-based sugaring business in Win
 
 ## Review variants and themes (October 2026, temporary)
 
-Pamela is choosing between options. Until she decides, the repo carries:
+Pamela is choosing between options. John's own pick (2026-10-11): noir theme, prices on the home page. Until Pamela decides, the repo carries:
 
 - **Colour themes** in `docs/styles.css`, selected by `html[data-theme]`: `pine` (default: forest green, honey, blush), `brand` (old Google Sites palette), `teal`, `noir` (dark). Open any page with `?theme=name`, or use the switcher. The honey-blob header mark shows in `pine`; the two-hearts mark shows in the other themes.
-- **A preview switcher** at the bottom of `docs/script.js`. It appears only on github.io, localhost, or with `?preview` in the URL, so it vanishes once the custom domain is live. It remembers the theme in localStorage and links to the same page in the other structural variant.
+- **Hero art options** on the home page, selected by `html[data-hero]`: `blob` (default, the animated honey blob), `hearts` (hearts logo), `hips` (hips logo), `pamela` (Pamela sugaring a leg), `sugar` (a ball of paste in her hand), `legs` (legs on the zebra rug), `studio` (treatment table), `none` (text only). All candidates are in the HTML with `loading="lazy"`, so only the chosen one downloads. Pamela didn't love the blob, hence the options.
+- **Extra inner-page photos** (`.photo.extra` on new-clients, why-sugar and wellness-tipping), hidden by `html[data-photos="fewer"]`.
+- **A preview switcher** at the bottom of `docs/script.js` with rows for theme, hero, photos and layout, plus a "copy share link" that encodes the current choices as `?theme=…&hero=…&photos=…`. It appears only on github.io, localhost, or with `?preview` in the URL, so it vanishes once the custom domain is live. It remembers the theme in localStorage and links to the same page in the other structural variant.
 - **Structural variant** `docs/variants/prices-page/`: a full second build where the price list is off the home page and only on `prices.html`. The main build keeps prices on the home page (`/#prices`) and also has `prices.html`. Variant pages are `noindex` and canonical to the main site. To retire a variant, delete its folder and its `build()` line at the bottom of `build.py`.
 
-To make a theme permanent: set `data-theme="name"` on the `<html>` tag in `build.py`'s page template (or copy that theme's variables into `:root`), delete the other theme blocks, and remove the switcher block from `script.js` and the `.preview` CSS.
+To make choices permanent: set `data-theme`, `data-hero` and `data-photos` on the `<html>` tag in `build.py`'s page template (or fold the chosen theme's variables into `:root`), delete the other theme blocks and unused hero candidates, drop unused images from `docs/images/`, and remove the switcher block from `script.js` and the `.preview` CSS.
 
 ## Audience and purpose
 

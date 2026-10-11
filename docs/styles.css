@@ -127,6 +127,32 @@ ul,ol{max-width:62ch}
   .hero .wrap{grid-template-columns:1fr}
   .sugar{width:9rem;order:-1;justify-self:start}
 }
+/* Hero art options, chosen with ?hero=name or the preview switcher. Default is the blob. */
+.hero-art{justify-self:center;width:100%;display:grid;place-items:center}
+.hero-opt{display:none}
+html:not([data-hero]) .hero-opt[data-opt="blob"],html[data-hero="blob"] .hero-opt[data-opt="blob"]{display:block}
+html[data-hero="hearts"] .hero-opt[data-opt="hearts"],html[data-hero="hips"] .hero-opt[data-opt="hips"],
+html[data-hero="pamela"] .hero-opt[data-opt="pamela"],html[data-hero="sugar"] .hero-opt[data-opt="sugar"],
+html[data-hero="legs"] .hero-opt[data-opt="legs"],html[data-hero="studio"] .hero-opt[data-opt="studio"]{display:block}
+html[data-hero="none"] .hero-art{display:none}
+html[data-hero="none"] .hero .wrap{grid-template-columns:1fr}
+.hero-logo{width:min(100%,22rem)}
+.hero-art .photo{width:min(100%,24rem)}
+.hero-art .photo.hero-square{aspect-ratio:1}
+.hero-art .photo.hero-wide{aspect-ratio:4/3;width:100%}
+@media (max-width:760px){
+  .hero-art{order:-1;justify-items:start}
+  .hero-logo{width:10rem}
+  .hero-art .photo{width:min(100%,16rem)}
+  .hero-art .photo.hero-wide{width:100%}
+}
+/* Extra inner-page photos, hidden with ?photos=fewer */
+html[data-photos="fewer"] .photo.extra{display:none}
+.photo.wide{aspect-ratio:4/3;margin-top:1.25rem}
+.with-photo{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.with-photo .photo{width:min(100%,20rem);justify-self:end}
+@media (max-width:760px){.with-photo{grid-template-columns:1fr}.with-photo .photo{justify-self:start;width:min(100%,14rem)}}
+html[data-photos="fewer"] .with-photo{grid-template-columns:1fr}
 
 /* Sections */
 .section{padding:clamp(3rem,7vw,5.5rem) 0}
@@ -207,8 +233,9 @@ ul,ol{max-width:62ch}
 .land{border-top:1px solid rgba(255,255,255,.16);margin-top:2.5rem;padding-top:1.5rem;font-size:.95rem;max-width:70ch}
 
 /* Preview switcher (script.js shows it only on github.io, localhost, or with ?preview). Remove at launch. */
-.preview{position:fixed;right:1rem;bottom:1rem;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;max-width:calc(100vw - 2rem);padding:.5rem .6rem;background:#1C1C1C;color:#fff;border-radius:999px;font:600 .82rem var(--display);box-shadow:0 6px 24px rgba(0,0,0,.25)}
-.preview span{padding:0 .3rem;opacity:.75}
+.preview{position:fixed;right:1rem;bottom:1rem;z-index:30;display:grid;gap:.35rem;max-width:calc(100vw - 2rem);padding:.6rem .7rem;background:#1C1C1C;color:#fff;border-radius:1rem;font:600 .82rem var(--display);box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.preview-row{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem}
+.preview span{min-width:3.4rem;padding:0 .3rem;opacity:.75}
 .preview button,.preview a{font:inherit;color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:.3rem .7rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem}
 .preview button[aria-pressed="true"]{background:#fff;color:#1C1C1C;border-color:#fff}
 .preview .swatch{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}
