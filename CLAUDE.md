@@ -2,6 +2,8 @@
 
 Static website for Feel Yourself Sugaring, a home-based sugaring business in Winnipeg run by Pamela Delisle. Moved off Google Sites (www.feelyourselfsugaring.com) to GitHub Pages at https://github.com/JohnDelisle/feelyourselfsugaring. John (the user) maintains it; Pamela reviews and gives feedback through him.
 
+**Start each session by reading `HANDOFF.md`.** It holds current status, decisions, open questions and the to-do list, and is updated at the end of each session.
+
 ## Layout
 
 - `docs/` is the published site, served by GitHub Pages from `main` + `/docs`. Everything in it except `images/`, `favicon.png`, `apple-touch-icon.png`, `styles.css`, `script.js` and `.nojekyll` is generated.
