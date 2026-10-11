@@ -4,24 +4,24 @@ Static website for Feel Yourself Sugaring, hosted on GitHub Pages. Plain HTML an
 
 ## Files
 
-- `index.html`, `our-sugarist.html`, `our-studio.html`, `why-sugar.html`, `wellness-tipping.html`, `advice.html`, `book-now.html`: the pages
+- `index.html`, `new-clients.html`, `prices.html`, `our-sugarist.html`, `our-studio.html`, `why-sugar.html`, `wellness-tipping.html`, `advice.html`, `book-now.html`: the pages
 - `styles.css`: all styling. Colours and fonts are set at the top.
-- `script.js`: mobile menu
+- `script.js`: mobile menu, plus a preview-only theme switcher (shows on github.io and localhost)
 - `home.html`, `why-us.html`: redirects so old Google Sites links keep working
 - `404.html`: page-not-found page
-- `build.py`: optional. Regenerates every page from one script, so the shared header and footer stay in sync. Run `python3 build.py`.
+- `build.py`: regenerates every page from one script, so the shared header and footer stay in sync. Run `python build.py`.
+- `variants/`: alternate builds for review (currently `prices-page`, with prices off the home page). Delete when a decision is made.
 
 Old URLs like `/our-sugarist` and `/book-now` work unchanged, because GitHub Pages serves `our-sugarist.html` at `/our-sugarist`.
 
 ## Before going live
 
-1. **Add photos** to `images/`. Until they're added, each photo slot shows a labelled placeholder.
+1. **Photos** live in `images/`. If one is missing, its slot shows a labelled placeholder.
    - `pamela.jpg`: portrait for the Our Sugarist page (portrait orientation, 4:5)
    - `studio-1.jpg`: main studio photo (large)
    - `studio-2.jpg`: plants and artwork
    - `studio-3.jpg`: aftercare products
    Keep each file under about 500 KB; resize to around 1600px wide.
-2. **Fix the Instagram link.** Set `INSTAGRAM` in `build.py` to the real profile URL and run `python3 build.py`, or find and replace `https://www.instagram.com/` in the HTML files.
 
 ## Publish on GitHub Pages
 

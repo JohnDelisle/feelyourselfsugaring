@@ -15,16 +15,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');try{var t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('fys-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
-<body>
+<body data-variant="prices-home">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="mk" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFE9B0"/><stop offset=".35" stop-color="#F5BC4E"/><stop offset=".75" stop-color="#DB8A1F"/><stop offset="1" stop-color="#A85E0E"/></radialGradient></defs><path fill="url(#mk)" d="M33 4c13 0 26 9 27 24 1 16-10 31-27 32C16 61 4 49 4 33 4 17 18 4 33 4z"/><ellipse cx="22" cy="18" rx="6" ry="3.2" fill="#fff" opacity=".7" transform="rotate(-28 22 18)"/></svg>Feel Yourself Sugaring</a>
+    <a class="brand" href="index.html"><svg class="mark mark-sugar" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="mk" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFE9B0"/><stop offset=".35" stop-color="#F5BC4E"/><stop offset=".75" stop-color="#DB8A1F"/><stop offset="1" stop-color="#A85E0E"/></radialGradient></defs><path fill="url(#mk)" d="M33 4c13 0 26 9 27 24 1 16-10 31-27 32C16 61 4 49 4 33 4 17 18 4 33 4z"/><ellipse cx="22" cy="18" rx="6" ry="3.2" fill="#fff" opacity=".7" transform="rotate(-28 22 18)"/></svg><svg class="mark mark-hearts" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#1C1C1C"/><path d="M0 20C-14 8-20 2-20-6c0-7 5-11 11-11 4 0 7 2 9 5 2-3 5-5 9-5 6 0 11 4 11 11 0 8-6 14-20 26z" fill="#FACBD0" transform="translate(25 29) scale(.66)"/><path d="M0 20C-14 8-20 2-20-6c0-7 5-11 11-11 4 0 7 2 9 5 2-3 5-5 9-5 6 0 11 4 11 11 0 8-6 14-20 26z" fill="#F385AA" transform="translate(40 35) scale(.66)"/></svg>Feel Yourself Sugaring</a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
 <a href="index.html">Home</a>
+<a href="new-clients.html">New here?</a>
+<a href="index.html#prices">Prices</a>
 <a href="our-sugarist.html">Our sugarist</a>
 <a href="our-studio.html">Our studio</a>
 <a href="why-sugar.html">Why sugar</a>
@@ -111,7 +113,7 @@
       </div>
       <div>
         <h2>Follow</h2>
-        <p><a href="https://www.instagram.com/">Instagram</a></p>
+        <p><a href="https://www.instagram.com/feelyourselfsugaring/">Instagram</a></p>
         <p><a href="book-now.html">Book an appointment</a></p>
       </div>
     </div>
