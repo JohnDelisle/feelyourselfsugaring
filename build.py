@@ -1,8 +1,10 @@
-# Generates the static HTML pages. Output is plain HTML; no build step needed in the repo.
+# Generates the static HTML pages into docs/, which GitHub Pages serves. Output is plain HTML.
 #
-# Builds the main site at the repo root, plus review variants under variants/<name>/
-# (see VARIANTS at the bottom). Variants reuse the root's styles.css, script.js and images/.
+# Layout: docs/ is the published site; media/ holds working materials (originals, logos);
+# this script and the notes stay at the repo root. Review variants build under
+# docs/variants/<name>/ (see the bottom) and reuse docs/styles.css, script.js and images/.
 import json, os, re
+SITE_DIR = "docs"
 SITE = "https://www.feelyourselfsugaring.com/"
 PHONE_HREF = "sms:+12045575197"
 PHONE = "204-557-5197"
@@ -142,8 +144,9 @@ stages = [
 def build(outdir, prices_page=False, label=""):
     """Write one complete set of pages into outdir.
     prices_page: True moves the price list off the home page onto prices.html."""
-    base = "" if outdir == "." else "../" * (outdir.count("/") + 1)   # path back to styles.css, images/
-    is_variant = outdir != "."
+    rel = os.path.relpath(outdir, SITE_DIR).replace("\\", "/")        # position inside the site
+    base = "" if rel == "." else "../" * (rel.count("/") + 1)          # path back to styles.css, images/
+    is_variant = rel != "."
     prices_href = "prices.html" if prices_page else "index.html#prices"
     NAV = [("index.html","Home"),("new-clients.html","New here?"),(prices_href,"Prices"),
            ("our-sugarist.html","Our sugarist"),("our-studio.html","Our studio"),
@@ -172,7 +175,8 @@ def build(outdir, prices_page=False, label=""):
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url}">
 <link rel="canonical" href="{url}">
-<link rel="icon" href="{base}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{base}favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="{base}apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
@@ -572,7 +576,7 @@ def build(outdir, prices_page=False, label=""):
 <p class="lead">That page doesn't exist, or it moved when the site was rebuilt.</p>
 <div class="actions"><a class="btn btn-primary" href="/">Go to the home page</a><a class="btn" href="/book-now">Book an appointment</a></div></div></section>''')
         # 404 is served from any path, so it needs root-relative asset links
-        nf = nf.replace('href="styles.css"','href="/styles.css"').replace('src="script.js"','src="/script.js"').replace('href="favicon.svg"','href="/favicon.svg"')
+        nf = nf.replace('href="styles.css"','href="/styles.css"').replace('src="script.js"','src="/script.js"').replace('href="favicon.png"','href="/favicon.png"').replace('href="apple-touch-icon.png"','href="/apple-touch-icon.png"')
         nf = re.sub(r'href="([a-z0-9-]+\.html)', r'href="/\1', nf)
         pages["404.html"] = nf
 
@@ -582,5 +586,5 @@ def build(outdir, prices_page=False, label=""):
     print(f"built {len(pages)} pages in {outdir}")
 
 # Main site, then review variants. Delete a variant's folder and its line here to retire it.
-build(".", prices_page=False, label="prices-home")
-build("variants/prices-page", prices_page=True, label="prices-page")
+build(SITE_DIR, prices_page=False, label="prices-home")
+build(SITE_DIR + "/variants/prices-page", prices_page=True, label="prices-page")
