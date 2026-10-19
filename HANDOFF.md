@@ -13,7 +13,8 @@ Read this with CLAUDE.md. CLAUDE.md holds the standing rules and layout; this fi
 
 ## Waiting on John
 
-- Google Form: paste the custom confirmation message (drafted 2026-10-19) into the client profile form's settings.
+Nothing until cutover. (2026-10-19: John pasted the Google Form confirmation message and set up Cloudflare Web Analytics; Pamela approved the privacy note and the rest of the checklist changes.)
+
 - At cutover: submit `sitemap.xml` in Google Search Console. The share image, sitemap and robots.txt only start working then.
 - At cutover: in Cloudflare Web Analytics, add a site for `feelyourselfsugaring.com` and put its token in `CF_BEACON`. The current token is for the github.io site and won't count visits on the real domain.
 
@@ -24,7 +25,6 @@ Read this with CLAUDE.md. CLAUDE.md holds the standing rules and layout; this fi
 3. Check the "at the studio" step of the appointment walkthrough on `new-clients.html`. It's written from standard sugaring practice, not from Pamela.
 4. The 2024 price sheet in Drive lists services the site doesn't: hydrojelly mask add-on after Brazilian/bikini, "Feel Your Skin Pampered" and "Nurtured" treatments, PCOS facial hair removal, five-session packages, first-visit aftercare gift. Still offered?
 5. The review offer says "$10 off for a Google review." Google's policy forbids incentivized reviews. Suggest rewording to a thank-you after the fact, and ask Pamela how she wants it handled.
-6. Approve the privacy note above the form on Book now. It promises answers go only to her, are kept in the business Google account, are never shared or sold, and can be seen, corrected or deleted on request by text. Is that all true?
 
 ## Google Business Profile: findings and suggestions
 
