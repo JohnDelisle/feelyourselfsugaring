@@ -1,4 +1,4 @@
-# Handoff — where things stand (written 2026-10-11, end of session)
+# Handoff — where things stand (updated 2026-10-19)
 
 Read this with CLAUDE.md. CLAUDE.md holds the standing rules and layout; this file holds the current state, decisions so far, open questions, and the to-do list. Update it at the end of each session.
 
@@ -7,23 +7,11 @@ Read this with CLAUDE.md. CLAUDE.md holds the standing rules and layout; this fi
 - The site is live on GitHub Pages at https://johndelisle.github.io/feelyourselfsugaring/ from `main` + `/docs`. Custom domain not moved yet; www.feelyourselfsugaring.com still serves the old Google Site.
 - All work is committed and pushed. `media/` (about 400 MB) is in git on purpose as a backup of the Drive folder.
 - Pamela has seen the first version and liked the tighter content and structure. She didn't love the yellow honey blob on the home page. She's worried the tightened copy drops messages she cares about (educating new clients, setting expectations).
-- John's own picks so far: **noir** theme, **prices on the home page** (the main build, not the variant). Pamela hasn't chosen yet.
-
-## What's built for her to choose from
-
-All of it is switchable on the live site with the corner switcher (github.io only) or URL parameters, and "Copy share link" in the switcher gives a URL that captures the choices.
-
-- Themes: `pine` (default), `brand`, `teal`, `noir`.
-- Hero art on the home page: `blob` (default), `hearts`, `hips`, `pamela`, `sugar`, `legs`, `studio`, `none`.
-- Extra inner-page photos: `photos=more` (default) or `fewer`.
-- Layout: prices on home page (main) vs. `docs/variants/prices-page/`.
-- New pages: `new-clients.html` ("New here?", Pamela's fuller voice for Google Maps arrivals) and `prices.html` (direct link to prices).
-
-When Pamela decides, make the choices permanent and strip the rest; CLAUDE.md says how. Do that before the domain cutover so the site goes lean.
+- **2026-10-19: Pamela chose her design** (shared as the link `variants/prices-page/advice.html?theme=noir&hero=pamela&photos=more`): noir theme, the photo of her sugaring a leg as the home hero, the inner-page photos, and prices on their own page. That's now the only version. The other themes, hero options, the `variants/` build and the preview switcher are gone; CLAUDE.md's "Design" section has the details. Old `variants/prices-page/...` links now 404.
 
 ## Open questions for Pamela
 
-1. Theme, hero, photos, and prices layout. Also whether the hips logo should appear anywhere.
+1. Whether the hips logo should appear anywhere.
 2. Policies the old site never stated, for the new-client page: cancellation and lateness, payment methods, parking and how to enter the home studio, age rule for tweens (parent present?), and whether mobile service has a travel fee.
 3. Check the "at the studio" step of the appointment walkthrough on `new-clients.html`. It's written from standard sugaring practice, not from Pamela.
 4. The 2024 price sheet in Drive lists services the site doesn't: hydrojelly mask add-on after Brazilian/bikini, "Feel Your Skin Pampered" and "Nurtured" treatments, PCOS facial hair removal, five-session packages, first-visit aftercare gift. Still offered?
@@ -53,9 +41,9 @@ Offered but not yet done: a paste-ready document with the description, the servi
 
 ## Technical notes for the next session
 
-- `python build.py` regenerates `docs/` and `docs/variants/`. Run it after any content change and commit the output.
-- Local preview: `cd docs && python -m http.server 8765` then open http://127.0.0.1:8765/. The switcher shows on localhost.
+- `python build.py` regenerates `docs/`. Run it after any content change and commit the output.
+- Local preview: `cd docs && python -m http.server 8765` then open http://127.0.0.1:8765/.
 - Chrome screenshots through the extension were flaky this session (timeouts on the first capture after a navigation). JavaScript queries on the page worked; a second screenshot attempt often worked. Not a site bug.
 - Google Drive connector: the business account (john@feelyourselfsugaring.com) is now the connected identity. It returns image bytes as base64 text, so it's only practical for small files. The full FYS Media folder is already in `media/`.
 - Links: Maps listing and review link are `MAPS` and `REVIEW` in `build.py`. The dashboard URL (business.google.com/n/540640849903216367) is private; never put it on the site.
-- Still to do at cutover: custom domain in Pages settings, DNS at the registrar (README has the records), enforce HTTPS, unpublish the Google Site, strip unchosen variants.
+- Still to do at cutover: custom domain in Pages settings, DNS at the registrar (README has the records), enforce HTTPS, unpublish the Google Site.

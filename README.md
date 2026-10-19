@@ -6,13 +6,12 @@ Static website for Feel Yourself Sugaring, hosted on GitHub Pages. Plain HTML, C
 
 - `docs/`: the published site. GitHub Pages serves this folder from the `main` branch. Don't hand-edit the HTML in here; it's generated.
   - `index.html`, `new-clients.html`, `prices.html`, `our-sugarist.html`, `our-studio.html`, `why-sugar.html`, `wellness-tipping.html`, `advice.html`, `book-now.html`: the pages
-  - `styles.css`: all styling. Colours and fonts are CSS variables at the top, followed by the alternate colour themes.
-  - `script.js`: mobile menu, plus a preview-only theme switcher (shows on github.io and localhost)
+  - `styles.css`: all styling. Colours and fonts are CSS variables at the top.
+  - `script.js`: mobile menu toggle
   - `images/`: photos and logos used by the pages
   - `favicon.png`, `apple-touch-icon.png`: Pamela's hearts favicon
   - `home.html`, `why-us.html`: redirects so old Google Sites links keep working
   - `404.html`: page-not-found page
-  - `variants/`: alternate builds for review (currently `prices-page`, with prices off the home page). Delete when a decision is made.
 - `build.py`: generates everything in `docs/` from one script, so the shared header and footer stay in sync. Run `python build.py` after any content change.
 - `media/`: working materials, copied from the `FYS Media` folder in the business Google Drive.
   - `brand/`: logos and favicons (committed)

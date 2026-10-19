@@ -16,19 +16,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js');try{var q=new URLSearchParams(location.search),d=document.documentElement.dataset;['theme','hero','photos'].forEach(function(k){var v=q.get(k)||localStorage.getItem('fys-'+k);if(v)d[k]=v})}catch(e){}</script>
+<script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BeautySalon", "name": "Feel Yourself Sugaring", "description": "Home-based body sugaring hair removal in Winnipeg's Charleswood/Tuxedo neighbourhood.", "url": "https://www.feelyourselfsugaring.com/", "telephone": "+1-204-557-5197", "sameAs": ["https://www.instagram.com/feelyourselfsugaring/", "https://maps.google.com/?cid=16458464166340835351"], "hasMap": "https://maps.google.com/?cid=16458464166340835351", "founder": {"@type": "Person", "name": "Pamela Delisle"}, "address": {"@type": "PostalAddress", "streetAddress": "31 Woodview Bay", "addressLocality": "Winnipeg", "addressRegion": "MB", "addressCountry": "CA"}, "areaServed": "Winnipeg, MB", "priceRange": "$10–$90"}</script>
 </head>
-<body data-variant="prices-home">
+<body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html"><svg class="mark mark-sugar" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="mk" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFE9B0"/><stop offset=".35" stop-color="#F5BC4E"/><stop offset=".75" stop-color="#DB8A1F"/><stop offset="1" stop-color="#A85E0E"/></radialGradient></defs><path fill="url(#mk)" d="M33 4c13 0 26 9 27 24 1 16-10 31-27 32C16 61 4 49 4 33 4 17 18 4 33 4z"/><ellipse cx="22" cy="18" rx="6" ry="3.2" fill="#fff" opacity=".7" transform="rotate(-28 22 18)"/></svg><svg class="mark mark-hearts" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#1C1C1C"/><path d="M0 20C-14 8-20 2-20-6c0-7 5-11 11-11 4 0 7 2 9 5 2-3 5-5 9-5 6 0 11 4 11 11 0 8-6 14-20 26z" fill="#FACBD0" transform="translate(25 29) scale(.66)"/><path d="M0 20C-14 8-20 2-20-6c0-7 5-11 11-11 4 0 7 2 9 5 2-3 5-5 9-5 6 0 11 4 11 11 0 8-6 14-20 26z" fill="#F385AA" transform="translate(40 35) scale(.66)"/></svg>Feel Yourself Sugaring</a>
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#1C1C1C"/><path d="M0 20C-14 8-20 2-20-6c0-7 5-11 11-11 4 0 7 2 9 5 2-3 5-5 9-5 6 0 11 4 11 11 0 8-6 14-20 26z" fill="#FACBD0" transform="translate(25 29) scale(.66)"/><path d="M0 20C-14 8-20 2-20-6c0-7 5-11 11-11 4 0 7 2 9 5 2-3 5-5 9-5 6 0 11 4 11 11 0 8-6 14-20 26z" fill="#F385AA" transform="translate(40 35) scale(.66)"/></svg>Feel Yourself Sugaring</a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
 <a href="index.html" aria-current="page">Home</a>
 <a href="new-clients.html">New here?</a>
-<a href="index.html#prices">Prices</a>
+<a href="prices.html">Prices</a>
 <a href="our-sugarist.html">Our sugarist</a>
 <a href="our-studio.html">Our studio</a>
 <a href="why-sugar.html">Why sugar</a>
@@ -51,13 +51,7 @@
       <p class="hero-note">New to sugaring? <a href="new-clients.html">Start here</a>.</p>
     </div>
     <div class="hero-art">
-      <div class="sugar hero-opt" data-opt="blob" aria-hidden="true"><div class="blob"></div><div class="shine"></div></div>
-      <img class="hero-opt hero-logo" data-opt="hearts" src="images/logo-hearts.png" alt="" loading="lazy">
-      <img class="hero-opt hero-logo" data-opt="hips" src="images/logo-hips.png" alt="" loading="lazy">
-      <figure class="hero-opt photo" data-opt="pamela"><img src="images/hero-pamela.jpg" alt="Pamela sugaring a client's leg in the studio" loading="lazy"></figure>
-      <figure class="hero-opt photo hero-square" data-opt="sugar"><img src="images/hero-sugar.jpg" alt="A ball of sugar paste in Pamela's hand" loading="lazy"></figure>
-      <figure class="hero-opt photo" data-opt="legs"><img src="images/hero-legs.jpg" alt="Sugar paste being applied to a leg" loading="lazy"></figure>
-      <figure class="hero-opt photo hero-wide" data-opt="studio"><img src="images/studio-1.jpg" alt="The treatment table in the studio" loading="lazy"></figure>
+      <figure class="photo"><img src="images/hero-pamela.jpg" alt="Pamela sugaring a client's leg in the studio"></figure>
     </div>
   </div>
 </section>
@@ -75,46 +69,12 @@
 </section>
 
 <section class="section rule" id="prices">
-  <div class="wrap">
+  <div class="wrap split">
     <h2>Services and prices</h2>
-    <p class="price-note">2026 prices, taxes included. Every service is gender-inclusive. Prices are starting points and may change with the time and product a service needs.</p>
-    <div class="prices">
-      <div>
-        <h3>Most popular</h3>
-<ul class="price-list">
-<li><span class="name">Brazilian<small>For people with a vulva. Includes inner glutes.</small></span><span class="amt">$50</span></li>
-<li><span class="name">Bikini line, extended</span><span class="amt">$35</span></li>
-<li><span class="name">Legs, full</span><span class="amt">$90</span></li>
-<li><span class="name">Legs, half</span><span class="amt">$45</span></li>
-<li><span class="name">Legs, quarter</span><span class="amt">$20</span></li>
-<li><span class="name">Chest or back</span><span class="amt">$50</span></li>
-<li><span class="name">Face, full<small>Includes a brow touch-up.</small></span><span class="amt">$40</span></li>
-<li><span class="name">Arms, full</span><span class="amt">$40</span></li>
-<li><span class="name">Arms, half</span><span class="amt">$25</span></li>
-<li><span class="name">Bum cheeks</span><span class="amt">$25</span></li>
-<li><span class="name">Underarms</span><span class="amt">$20</span></li>
-<li><span class="name">Abdomen, full</span><span class="amt">$20</span></li>
-<li><span class="name">Ears</span><span class="amt">$20</span></li>
-</ul>
-      </div>
-      <div>
-        <h3>Add-ons</h3>
-<ul class="price-list">
-<li><span class="name">Ingrown hair extraction<small>15 minutes.</small></span><span class="amt">$10</span></li>
-<li><span class="name">Upper and lower lip</span><span class="amt">$10</span></li>
-<li><span class="name">Chin<small>Includes lower lip.</small></span><span class="amt">$10</span></li>
-<li><span class="name">Brow touch-up</span><span class="amt">$10</span></li>
-<li><span class="name">Nape of the neck</span><span class="amt">$10</span></li>
-<li><span class="name">Abdomen trail</span><span class="amt">$10</span></li>
-<li><span class="name">Areolas</span><span class="amt">$10</span></li>
-</ul>
-        <p class="price-note" style="margin-top:1.25rem">Don't see what you need? <a href="sms:+12045575197">Text Pamela</a> about a custom service.</p>
-      </div>
-    </div>
-    <h3 style="margin-top:3rem">Ways to save</h3>
-    <div class="offers">
-      <div class="offer"><h3>Leave a Google review</h3><p>Rate and review us on Google and get $10 off your next service. <a href="https://g.page/r/CRe4PWf1NWjkEBM/review">Write a review</a>.</p></div>
-      <div class="offer"><h3>Refer a friend</h3><p>When someone new books on your recommendation, you both get $10 off your next service.</p></div>
+    <div>
+      <p class="lead">2026 prices, taxes included, and the same price for everyone. A Brazilian is $50, full legs are $90, underarms are $20, and add-ons like lip, chin or brows are $10 each.</p>
+      <p>Prices are starting points and may change with the time and product a service needs. Leave a Google review or refer a friend and you get $10 off your next visit.</p>
+      <div class="actions"><a class="btn btn-primary" href="prices.html">See all prices</a><a class="btn" href="sms:+12045575197">Ask about a custom service</a></div>
     </div>
   </div>
 </section>

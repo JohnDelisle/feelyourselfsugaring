@@ -1,8 +1,7 @@
 # Generates the static HTML pages into docs/, which GitHub Pages serves. Output is plain HTML.
 #
 # Layout: docs/ is the published site; media/ holds working materials (originals, logos);
-# this script and the notes stay at the repo root. Review variants build under
-# docs/variants/<name>/ (see the bottom) and reuse docs/styles.css, script.js and images/.
+# this script and the notes stay at the repo root.
 import json, os, re
 SITE_DIR = "docs"
 SITE = "https://www.feelyourselfsugaring.com/"
@@ -13,10 +12,9 @@ MAPS = "https://maps.google.com/?cid=16458464166340835351"          # public Goo
 REVIEW = "https://g.page/r/CRe4PWf1NWjkEBM/review"                 # "write a review" link from the Business Profile
 FORM = "https://docs.google.com/forms/d/e/1FAIpQLSeQs9sJO3A9PlhY3qhilEIwmsSzeXqD-X9Zkp8nebxhRqmKyg/viewform"
 
-# Brand marks. MARK is the honey sugar blob (pine theme); HEARTS echoes the two-hearts logo (other themes).
-MARK = '<svg class="mark mark-sugar" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="mk" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFE9B0"/><stop offset=".35" stop-color="#F5BC4E"/><stop offset=".75" stop-color="#DB8A1F"/><stop offset="1" stop-color="#A85E0E"/></radialGradient></defs><path fill="url(#mk)" d="M33 4c13 0 26 9 27 24 1 16-10 31-27 32C16 61 4 49 4 33 4 17 18 4 33 4z"/><ellipse cx="22" cy="18" rx="6" ry="3.2" fill="#fff" opacity=".7" transform="rotate(-28 22 18)"/></svg>'
+# Brand mark: echoes Pamela's two-hearts logo.
 HEART = "M0 20C-14 8-20 2-20-6c0-7 5-11 11-11 4 0 7 2 9 5 2-3 5-5 9-5 6 0 11 4 11 11 0 8-6 14-20 26z"
-HEARTS = (f'<svg class="mark mark-hearts" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#1C1C1C"/>'
+HEARTS = (f'<svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#1C1C1C"/>'
           f'<path d="{HEART}" fill="#FACBD0" transform="translate(25 29) scale(.66)"/>'
           f'<path d="{HEART}" fill="#F385AA" transform="translate(40 35) scale(.66)"/></svg>')
 
@@ -143,19 +141,14 @@ stages = [
 ]
 
 # ---------------- Builder ----------------
-def build(outdir, prices_page=False, label=""):
-    """Write one complete set of pages into outdir.
-    prices_page: True moves the price list off the home page onto prices.html."""
-    rel = os.path.relpath(outdir, SITE_DIR).replace("\\", "/")        # position inside the site
-    base = "" if rel == "." else "../" * (rel.count("/") + 1)          # path back to styles.css, images/
-    is_variant = rel != "."
-    prices_href = "prices.html" if prices_page else "index.html#prices"
-    NAV = [("index.html","Home"),("new-clients.html","New here?"),(prices_href,"Prices"),
+def build(outdir):
+    """Write the complete set of pages into outdir."""
+    NAV = [("index.html","Home"),("new-clients.html","New here?"),("prices.html","Prices"),
            ("our-sugarist.html","Our sugarist"),("our-studio.html","Our studio"),
            ("why-sugar.html","Why sugar"),("wellness-tipping.html","Wellness tipping"),("advice.html","Advice")]
 
     def photo(src, label, cls=""):
-        return (f'<figure class="photo {cls}" data-label="{label}"><img src="{base}images/{src}" alt="{label}" loading="lazy" '
+        return (f'<figure class="{" ".join(["photo", cls]).strip()}" data-label="{label}"><img src="images/{src}" alt="{label}" loading="lazy" '
                 f'onerror="this.parentNode.classList.add(\'missing\');this.remove()"></figure>')
 
     def page(slug, title, desc, body, extra_head=""):
@@ -164,32 +157,31 @@ def build(outdir, prices_page=False, label=""):
         book_cur = ' aria-current="page"' if slug=="book-now.html" else ""
         full_title = "Feel Yourself Sugaring" if slug=="index.html" else f"{title} | Feel Yourself Sugaring"
         url = SITE if slug=="index.html" else SITE + slug.replace(".html","")
-        robots = '\n<meta name="robots" content="noindex">' if is_variant else ""
         return f'''<!doctype html>
 <html lang="en-CA">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{full_title}</title>
-<meta name="description" content="{desc}">{robots}
+<meta name="description" content="{desc}">
 <meta property="og:title" content="{full_title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url}">
 <link rel="canonical" href="{url}">
-<link rel="icon" href="{base}favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="{base}apple-touch-icon.png">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{base}styles.css">
-<script>document.documentElement.classList.add('js');try{{var q=new URLSearchParams(location.search),d=document.documentElement.dataset;['theme','hero','photos'].forEach(function(k){{var v=q.get(k)||localStorage.getItem('fys-'+k);if(v)d[k]=v}})}}catch(e){{}}</script>{extra_head}
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>{extra_head}
 </head>
-<body data-variant="{label}">
+<body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">{MARK}{HEARTS}Feel Yourself Sugaring</a>
+    <a class="brand" href="index.html">{HEARTS}Feel Yourself Sugaring</a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
 {nav}
@@ -224,7 +216,7 @@ def build(outdir, prices_page=False, label=""):
     <p class="land">Feel Yourself Sugaring is located on Treaty 1 Territory, the stolen land of the Anishinaabe, Cree, Oji-Cree, Dakota and Dene peoples, and the homeland of the Métis Nation.</p>
   </div>
 </footer>
-<script src="{base}script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
 '''
@@ -232,8 +224,7 @@ def build(outdir, prices_page=False, label=""):
     pages = {}
 
     # ---------------- HOME ----------------
-    if prices_page:
-        prices_section = f'''<section class="section rule" id="prices">
+    prices_section = f'''<section class="section rule" id="prices">
   <div class="wrap split">
     <h2>Services and prices</h2>
     <div>
@@ -241,13 +232,6 @@ def build(outdir, prices_page=False, label=""):
       <p>Prices are starting points and may change with the time and product a service needs. Leave a Google review or refer a friend and you get $10 off your next visit.</p>
       <div class="actions"><a class="btn btn-primary" href="prices.html">See all prices</a><a class="btn" href="{PHONE_HREF}">Ask about a custom service</a></div>
     </div>
-  </div>
-</section>'''
-    else:
-        prices_section = f'''<section class="section rule" id="prices">
-  <div class="wrap">
-    <h2>Services and prices</h2>
-{price_block()}
   </div>
 </section>'''
 
@@ -265,13 +249,7 @@ def build(outdir, prices_page=False, label=""):
       <p class="hero-note">New to sugaring? <a href="new-clients.html">Start here</a>.</p>
     </div>
     <div class="hero-art">
-      <div class="sugar hero-opt" data-opt="blob" aria-hidden="true"><div class="blob"></div><div class="shine"></div></div>
-      <img class="hero-opt hero-logo" data-opt="hearts" src="{base}images/logo-hearts.png" alt="" loading="lazy">
-      <img class="hero-opt hero-logo" data-opt="hips" src="{base}images/logo-hips.png" alt="" loading="lazy">
-      <figure class="hero-opt photo" data-opt="pamela"><img src="{base}images/hero-pamela.jpg" alt="Pamela sugaring a client's leg in the studio" loading="lazy"></figure>
-      <figure class="hero-opt photo hero-square" data-opt="sugar"><img src="{base}images/hero-sugar.jpg" alt="A ball of sugar paste in Pamela's hand" loading="lazy"></figure>
-      <figure class="hero-opt photo" data-opt="legs"><img src="{base}images/hero-legs.jpg" alt="Sugar paste being applied to a leg" loading="lazy"></figure>
-      <figure class="hero-opt photo hero-wide" data-opt="studio"><img src="{base}images/studio-1.jpg" alt="The treatment table in the studio" loading="lazy"></figure>
+      <figure class="photo"><img src="images/hero-pamela.jpg" alt="Pamela sugaring a client's leg in the studio"></figure>
     </div>
   </div>
 </section>
@@ -302,7 +280,7 @@ def build(outdir, prices_page=False, label=""):
 </section>''',
      extra_head='\n<script type="application/ld+json">'+json.dumps(ld,ensure_ascii=False)+'</script>')
 
-    # ---------------- PRICES (own page; in the main build it mirrors the home section) ----------------
+    # ---------------- PRICES ----------------
     pages["prices.html"] = page("prices.html","Prices",
      "2026 gender-inclusive sugaring prices at Feel Yourself Sugaring in Winnipeg, from $10 add-ons to full legs.",
     f'''<section class="page-head">
@@ -328,7 +306,7 @@ def build(outdir, prices_page=False, label=""):
         <h1>New to sugaring? Start here.</h1>
         <p class="lead">Most people find Pamela while searching for hair removal near them. If that's you, this page explains what sugaring is, what an appointment is like, and how to get ready, so there are no surprises for either of us.</p>
       </div>
-      {photo("hero-pamela.jpg","Pamela sugaring a client's leg","extra")}
+      {photo("hero-pamela.jpg","Pamela sugaring a client's leg")}
     </div>
   </div>
 </section>
@@ -403,7 +381,7 @@ def build(outdir, prices_page=False, label=""):
   <div class="wrap split">
     <h2>Prices and paying for it</h2>
     <div>
-      <p class="lead">Prices are the same for everyone and include tax. Add-ons start at $10, a Brazilian is $50, and full legs are $90. <a href="{prices_href}">See all prices</a>.</p>
+      <p class="lead">Prices are the same for everyone and include tax. Add-ons start at $10, a Brazilian is $50, and full legs are $90. <a href="prices.html">See all prices</a>.</p>
       <p>If cost is what's stopping you, ask about a Wellness Spot. Pamela gives 100% of her tips to clients who want to be sugared but have no self-care budget, and nobody has to prove anything. <a href="wellness-tipping.html">How wellness tipping works</a>.</p>
       <p><a href="{REVIEW}">Leave a Google review</a>, or refer a friend, and you get $10 off your next service.</p>
     </div>
@@ -491,7 +469,7 @@ def build(outdir, prices_page=False, label=""):
         <h1>Why sugar?</h1>
         <p class="lead">Sugaring removes hair with a warm paste of sugar, lemon and water. Here's why people who try it tend to stick with it.</p>
       </div>
-      {photo("sugar-skin.jpg","Sugar paste on skin, mid-appointment","extra")}
+      {photo("sugar-skin.jpg","Sugar paste on skin, mid-appointment")}
     </div>
   </div>
 </section>
@@ -513,7 +491,7 @@ def build(outdir, prices_page=False, label=""):
 </section>
 <section class="section rule">
   <div class="wrap split">
-    <div><h2>How it works</h2>{photo("tipping.jpg","Tip money beside a Feel Yourself Sugaring pin","extra wide")}</div>
+    <div><h2>How it works</h2>{photo("tipping.jpg","Tip money beside a Feel Yourself Sugaring pin","wide")}</div>
     <div>
       <p>Wellness services like sugaring should be open to everyone, whatever their budget. So every tip Pamela receives pays for appointments for people who self-declare as having no money for self-care.</p>
       <p>Nobody has to prove anything. If you say you need a spot, that's enough.</p>
@@ -583,30 +561,27 @@ def build(outdir, prices_page=False, label=""):
   </div>
 </section>''')
 
-    if not is_variant:
-        # Redirects for old Google Sites URLs
-        def redirect(target):
-            return f'''<!doctype html><html lang="en-CA"><head><meta charset="utf-8"><title>Moved</title>
+    # Redirects for old Google Sites URLs
+    def redirect(target):
+        return f'''<!doctype html><html lang="en-CA"><head><meta charset="utf-8"><title>Moved</title>
 <meta http-equiv="refresh" content="0; url={target}"><link rel="canonical" href="{target}"></head>
 <body><p>This page has moved to <a href="{target}">{target}</a>.</p></body></html>
 '''
-        pages["home.html"] = redirect("index.html")
-        pages["why-us.html"] = redirect("our-studio.html#why-us")
+    pages["home.html"] = redirect("index.html")
+    pages["why-us.html"] = redirect("our-studio.html#why-us")
 
-        nf = page("404.html","Page not found","This page doesn't exist.",
-        '''<section class="page-head"><div class="wrap"><h1>Page not found</h1>
+    nf = page("404.html","Page not found","This page doesn't exist.",
+    '''<section class="page-head"><div class="wrap"><h1>Page not found</h1>
 <p class="lead">That page doesn't exist, or it moved when the site was rebuilt.</p>
 <div class="actions"><a class="btn btn-primary" href="/">Go to the home page</a><a class="btn" href="/book-now">Book an appointment</a></div></div></section>''')
-        # 404 is served from any path, so it needs root-relative asset links
-        nf = nf.replace('href="styles.css"','href="/styles.css"').replace('src="script.js"','src="/script.js"').replace('href="favicon.png"','href="/favicon.png"').replace('href="apple-touch-icon.png"','href="/apple-touch-icon.png"')
-        nf = re.sub(r'href="([a-z0-9-]+\.html)', r'href="/\1', nf)
-        pages["404.html"] = nf
+    # 404 is served from any path, so it needs root-relative asset links
+    nf = nf.replace('href="styles.css"','href="/styles.css"').replace('src="script.js"','src="/script.js"').replace('href="favicon.png"','href="/favicon.png"').replace('href="apple-touch-icon.png"','href="/apple-touch-icon.png"')
+    nf = re.sub(r'href="([a-z0-9-]+\.html)', r'href="/\1', nf)
+    pages["404.html"] = nf
 
     os.makedirs(outdir, exist_ok=True)
     for name, html in pages.items():
         open(os.path.join(outdir, name), "w", encoding="utf-8", newline="\n").write(html)
     print(f"built {len(pages)} pages in {outdir}")
 
-# Main site, then review variants. Delete a variant's folder and its line here to retire it.
-build(SITE_DIR, prices_page=False, label="prices-home")
-build(SITE_DIR + "/variants/prices-page", prices_page=True, label="prices-page")
+build(SITE_DIR)

@@ -1,69 +1,24 @@
 /* Feel Yourself Sugaring — shared styles
-   Default theme "pine": pine (forest next door), honey (sugar paste), blush (skin).
-   Other themes override the variables below via html[data-theme="..."]; see THEMES. */
+   Dark theme, like the logo: pink on near-black, with a blush band.
+   The variable names (pine, honey) are left over from an earlier palette; read them as
+   "primary" and "accent". */
 :root{
-  --pine:#1E3A32; --pine-2:#2C4F44;        /* primary: buttons, nav, headings on bands */
-  --honey:#E39B2D; --honey-ink:#8F520A;    /* accent, and a darker accent for links */
-  --blush:#F4D6CF; --bg:#F5F7F2; --paper:#FFFFFF;
-  --ink:var(--pine);                        /* body text */
-  --muted:#4F6259; --line:#D6DED3; --dots:#AEBBAB;
-  --header-bg:rgba(245,247,242,.94);
-  --band-bg:var(--pine); --band-fg:#E4ECE6; --band-heading:var(--bg); --band-accent:var(--honey);
-  --footer-bg:var(--pine); --footer-fg:#D9E3DC; --footer-heading:var(--bg); --footer-accent:var(--honey);
-  --card-line:rgba(30,58,50,.15);
-  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
-  --body:"Newsreader",Georgia,"Times New Roman",serif;
-  --wrap:72rem;
-}
-/* THEMES — pick with ?theme=name, the preview switcher, or set html[data-theme] permanently. */
-/* "brand": the old Google Sites palette. Near-black, blush pink and hot pink on white. */
-html[data-theme="brand"]{
-  --pine:#1C1C1C; --pine-2:#3A3A3A;
-  --honey:#F385AA; --honey-ink:#B8386A;
-  --blush:#FACBD0; --bg:#FFFFFF; --paper:#F9F9F9;
-  --muted:#5B5557; --line:#EADFE2; --dots:#D9C3C8;
-  --header-bg:rgba(255,255,255,.94);
-  --band-fg:#F1E6E9; --footer-fg:#E9DDE0; --card-line:rgba(28,28,28,.14);
-}
-/* "teal": the teal from the old site's banners, with the pink logo colours as accents. */
-html[data-theme="teal"]{
-  --pine:#0F6B74; --pine-2:#1A9DA8;
-  --honey:#F385AA; --honey-ink:#B8386A;
-  --blush:#FACBD0; --bg:#F6FBFB; --paper:#FFFFFF;
-  --ink:#1B2F33; --muted:#3F6B6F; --line:#CFE3E5; --dots:#A9CDD0;
-  --header-bg:rgba(246,251,251,.94);
-  --band-bg:#1A9DA8; --band-fg:#EAF7F8; --band-heading:#FFFFFF; --band-accent:#FFD1DF;
-  --footer-bg:#0F6B74; --footer-fg:#D6ECEE; --footer-heading:#FFFFFF; --footer-accent:#FFD1DF;
-  --card-line:rgba(15,107,116,.15);
-}
-/* "noir": dark, like the logo. Pink on near-black. */
-html[data-theme="noir"]{
-  --pine:#F6A9C4; --pine-2:#F385AA;
-  --honey:#F385AA; --honey-ink:#F7B6CD;
+  --pine:#F6A9C4; --pine-2:#F385AA;        /* primary: buttons, nav button, headings */
+  --honey:#F385AA; --honey-ink:#F7B6CD;    /* accent, and a lighter accent for links */
   --blush:#2B2126; --bg:#161616; --paper:#232023;
-  --ink:#F3EDEF; --muted:#BDB0B5; --line:#332D30; --dots:#4A3F44;
+  --ink:#F3EDEF;                            /* body text */
+  --muted:#BDB0B5; --line:#332D30; --dots:#4A3F44;
   --header-bg:rgba(22,22,22,.94);
   --band-bg:#FACBD0; --band-fg:#2A1A20; --band-heading:#1C1C1C; --band-accent:#8A1F4D;
   --footer-bg:#0C0C0C; --footer-fg:#CFC3C8; --footer-heading:#FFFFFF; --footer-accent:#F6A9C4;
   --card-line:rgba(255,255,255,.12);
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,"Times New Roman",serif;
+  --wrap:72rem;
 }
-html[data-theme="noir"]{color-scheme:dark}
-html[data-theme="noir"] .nav a,html[data-theme="noir"] .brand,html[data-theme="noir"] .menu-toggle{color:var(--ink)}
-html[data-theme="noir"] .nav a.btn{color:var(--pine)}
-html[data-theme="noir"] .nav a.btn:hover,html[data-theme="noir"] .btn:hover{color:var(--bg)}
-html[data-theme="noir"] .btn-primary{color:#1C1C1C}
-html[data-theme="noir"] .btn-primary:hover{color:#1C1C1C}
-html[data-theme="noir"] .band .btn{border-color:var(--band-accent);color:var(--band-accent)}
-html[data-theme="noir"] .band .btn:hover{background:var(--band-accent);color:#fff}
-html[data-theme="noir"] .perks > div{border-top-color:var(--line)}
-html[data-theme="noir"] .photo.missing::after{color:var(--ink)}
-/* Brand mark: the honey blob in "pine", the two hearts everywhere else */
-.mark-hearts{display:none}
-html[data-theme]:not([data-theme="pine"]) .mark-sugar{display:none}
-html[data-theme]:not([data-theme="pine"]) .mark-hearts{display:block}
 
 *,*::before,*::after{box-sizing:border-box}
-html{color-scheme:light;-webkit-text-size-adjust:100%;scroll-padding-top:5rem}
+html{color-scheme:dark;-webkit-text-size-adjust:100%;scroll-padding-top:5rem}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.1875rem;line-height:1.62}
 img{max-width:100%;display:block;height:auto}
 a{color:var(--honey-ink);text-underline-offset:.18em;text-decoration-thickness:1px}
@@ -84,19 +39,19 @@ ul,ol{max-width:62ch}
 /* Header */
 .site-header{position:sticky;top:0;z-index:10;background:var(--header-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .site-header .wrap{display:flex;align-items:center;gap:1rem;min-height:4.25rem;position:relative}
-.brand{display:flex;align-items:center;gap:.6rem;margin-right:auto;font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:-.01em;color:var(--pine);text-decoration:none}
+.brand{display:flex;align-items:center;gap:.6rem;margin-right:auto;font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
 .brand svg{width:1.9rem;height:1.9rem;flex:none}
 .nav{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:.5rem 1.1rem;font-family:var(--display);font-size:.98rem}
-.nav a{color:var(--pine);text-decoration:none;padding:.25rem 0;border-bottom:2px solid transparent}
+.nav a{color:var(--ink);text-decoration:none;padding:.25rem 0;border-bottom:2px solid transparent}
 .nav a:hover,.nav a[aria-current="page"]{border-bottom-color:var(--honey)}
-.menu-toggle{display:none;font:600 1rem var(--display);color:var(--pine);background:none;border:2px solid var(--pine);border-radius:999px;padding:.45rem 1rem;cursor:pointer}
+.menu-toggle{display:none;font:600 1rem var(--display);color:var(--ink);background:none;border:2px solid var(--pine);border-radius:999px;padding:.45rem 1rem;cursor:pointer}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:1rem;line-height:1.1;text-decoration:none;padding:.8rem 1.4rem;border-radius:999px;border:2px solid var(--pine);color:var(--pine);background:transparent}
 .btn:hover{background:var(--pine);color:var(--bg)}
-.btn-primary{background:var(--pine);color:var(--bg)}
-.btn-primary:hover{background:var(--pine-2);border-color:var(--pine-2);color:var(--bg)}
-.nav a.btn{padding:.55rem 1.1rem;border:2px solid var(--pine)}
+.btn-primary{background:var(--pine);color:#1C1C1C}
+.btn-primary:hover{background:var(--pine-2);border-color:var(--pine-2);color:#1C1C1C}
+.nav a.btn{padding:.55rem 1.1rem;border:2px solid var(--pine);color:var(--pine)}
 .nav a.btn:hover{color:var(--bg)}
 .actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
 
@@ -112,47 +67,18 @@ ul,ol{max-width:62ch}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:2rem;align-items:center}
 .hero h1{font-size:clamp(3.6rem,12vw,8.75rem);font-weight:800;line-height:.88;letter-spacing:-.05em;margin-bottom:.3em}
 .hero .lead{font-size:clamp(1.25rem,2.2vw,1.45rem);max-width:34ch}
-.sugar{position:relative;width:min(100%,25rem);aspect-ratio:1;justify-self:center}
-.sugar .blob{position:absolute;inset:0;border-radius:58% 42% 55% 45%/47% 58% 42% 53%;
-  background:radial-gradient(circle at 34% 30%,#FFE9B0 0 7%,#F5BC4E 28%,#DB8A1F 60%,#A85E0E 100%);
-  box-shadow:inset -20px -26px 44px rgba(110,55,0,.35),inset 16px 18px 32px rgba(255,242,205,.5);
-  animation:knead 16s ease-in-out infinite alternate}
-.sugar .shine{position:absolute;left:23%;top:19%;width:19%;height:10%;border-radius:50%;background:rgba(255,255,255,.72);filter:blur(2px);transform:rotate(-28deg)}
-@keyframes knead{
-  0%{border-radius:58% 42% 55% 45%/47% 58% 42% 53%}
-  50%{border-radius:44% 56% 40% 60%/58% 42% 58% 42%}
-  100%{border-radius:52% 48% 62% 38%/40% 55% 45% 60%}}
-@media (prefers-reduced-motion:reduce){.sugar .blob{animation:none}}
+.hero-art{justify-self:center;width:100%;display:grid;place-items:center}
+.hero-art .photo{width:min(100%,24rem)}
 @media (max-width:760px){
   .hero .wrap{grid-template-columns:1fr}
-  .sugar{width:9rem;order:-1;justify-self:start}
-}
-/* Hero art options, chosen with ?hero=name or the preview switcher. Default is the blob. */
-.hero-art{justify-self:center;width:100%;display:grid;place-items:center}
-.hero-opt{display:none}
-html:not([data-hero]) .hero-opt[data-opt="blob"],html[data-hero="blob"] .hero-opt[data-opt="blob"]{display:block}
-html[data-hero="hearts"] .hero-opt[data-opt="hearts"],html[data-hero="hips"] .hero-opt[data-opt="hips"],
-html[data-hero="pamela"] .hero-opt[data-opt="pamela"],html[data-hero="sugar"] .hero-opt[data-opt="sugar"],
-html[data-hero="legs"] .hero-opt[data-opt="legs"],html[data-hero="studio"] .hero-opt[data-opt="studio"]{display:block}
-html[data-hero="none"] .hero-art{display:none}
-html[data-hero="none"] .hero .wrap{grid-template-columns:1fr}
-.hero-logo{width:min(100%,22rem)}
-.hero-art .photo{width:min(100%,24rem)}
-.hero-art .photo.hero-square{aspect-ratio:1}
-.hero-art .photo.hero-wide{aspect-ratio:4/3;width:100%}
-@media (max-width:760px){
   .hero-art{order:-1;justify-items:start}
-  .hero-logo{width:10rem}
   .hero-art .photo{width:min(100%,16rem)}
-  .hero-art .photo.hero-wide{width:100%}
 }
-/* Extra inner-page photos, hidden with ?photos=fewer */
-html[data-photos="fewer"] .photo.extra{display:none}
+/* Inner-page photos */
 .photo.wide{aspect-ratio:4/3;margin-top:1.25rem}
 .with-photo{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:clamp(1.5rem,4vw,3rem);align-items:center}
 .with-photo .photo{width:min(100%,20rem);justify-self:end}
 @media (max-width:760px){.with-photo{grid-template-columns:1fr}.with-photo .photo{justify-self:start;width:min(100%,14rem)}}
-html[data-photos="fewer"] .with-photo{grid-template-columns:1fr}
 
 /* Sections */
 .section{padding:clamp(3rem,7vw,5.5rem) 0}
@@ -161,7 +87,7 @@ html[data-photos="fewer"] .with-photo{grid-template-columns:1fr}
 .band h2,.band h3{color:var(--band-heading)}
 .band a{color:var(--band-accent)}
 .band .btn{border-color:var(--band-accent);color:var(--band-accent)}
-.band .btn:hover{background:var(--band-accent);color:var(--band-bg)}
+.band .btn:hover{background:var(--band-accent);color:#fff}
 .hero-note{margin-top:1.25rem;font-family:var(--display);font-size:1.02rem}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
 @media (max-width:820px){.split{grid-template-columns:1fr}}
@@ -189,7 +115,7 @@ html[data-photos="fewer"] .with-photo{grid-template-columns:1fr}
 
 /* Perk / benefit lists */
 .perks{display:grid;grid-template-columns:repeat(auto-fill,minmax(15.5rem,1fr));gap:0 2.75rem;margin:2rem 0 0;padding:0}
-.perks > div{padding:1.2rem 0 1.5rem;border-top:2px solid var(--pine)}
+.perks > div{padding:1.2rem 0 1.5rem;border-top:2px solid var(--line)}
 .perks dt{font-family:var(--display);font-weight:700;font-size:1.18rem;margin-bottom:.3rem;letter-spacing:-.01em}
 .perks dd{margin:0;color:var(--muted)}
 .group + .group{margin-top:clamp(3rem,6vw,4.5rem)}
@@ -217,7 +143,7 @@ html[data-photos="fewer"] .with-photo{grid-template-columns:1fr}
 /* Photos (hide gracefully until the image files are added) */
 .photo{margin:0;position:relative;overflow:hidden;background:var(--blush);border-radius:1.5rem 1.5rem 1.5rem .3rem;aspect-ratio:4/5}
 .photo img{width:100%;height:100%;object-fit:cover}
-.photo.missing::after{content:attr(data-label);position:absolute;inset:0;display:grid;place-items:center;padding:1rem;text-align:center;font:600 .95rem var(--display);color:var(--pine)}
+.photo.missing::after{content:attr(data-label);position:absolute;inset:0;display:grid;place-items:center;padding:1rem;text-align:center;font:600 .95rem var(--display);color:var(--ink)}
 .gallery{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-top:2rem}
 .gallery .photo{aspect-ratio:4/3}
 .gallery .photo:first-child{grid-row:span 2;aspect-ratio:auto;min-height:22rem}
@@ -232,11 +158,3 @@ html[data-photos="fewer"] .with-photo{grid-template-columns:1fr}
 @media (max-width:760px){.footer-grid{grid-template-columns:1fr}}
 .land{border-top:1px solid rgba(255,255,255,.16);margin-top:2.5rem;padding-top:1.5rem;font-size:.95rem;max-width:70ch}
 
-/* Preview switcher (script.js shows it only on github.io, localhost, or with ?preview). Remove at launch. */
-.preview{position:fixed;right:1rem;bottom:1rem;z-index:30;display:grid;gap:.35rem;max-width:calc(100vw - 2rem);padding:.6rem .7rem;background:#1C1C1C;color:#fff;border-radius:1rem;font:600 .82rem var(--display);box-shadow:0 6px 24px rgba(0,0,0,.25)}
-.preview-row{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem}
-.preview span{min-width:3.4rem;padding:0 .3rem;opacity:.75}
-.preview button,.preview a{font:inherit;color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:.3rem .7rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem}
-.preview button[aria-pressed="true"]{background:#fff;color:#1C1C1C;border-color:#fff}
-.preview .swatch{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}
-.preview a{border-style:dashed}
