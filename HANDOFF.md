@@ -18,13 +18,17 @@ Nothing until cutover. (2026-10-19: John pasted the Google Form confirmation mes
 - At cutover: submit `sitemap.xml` in Google Search Console. The share image, sitemap and robots.txt only start working then.
 - At cutover: in Cloudflare Web Analytics, add a site for `feelyourselfsugaring.com` and put its token in `CF_BEACON`. The current token is for the github.io site and won't count visits on the real domain.
 
+## Remind John at the start of each session
+
+- Has Pamela checked the "at the studio" step of the appointment walkthrough on `new-clients.html`? It's written from standard sugaring practice, not from her. (John is asking her; raised 2026-10-19.)
+- Any luck getting a photo of the studio entrance? Useful for the new-client page and the Google Business Profile.
+- Has Pamela sent her edits to the price sheet? (Promised 2026-10-19; the 2024 sheet in Drive lists extra services: hydrojelly mask add-on, "Feel Your Skin Pampered" and "Nurtured" treatments, PCOS facial, five-session packages, first-visit aftercare gift.)
+
 ## Open questions for Pamela
 
-1. Whether the hips logo should appear anywhere.
-2. Policies the old site never stated, for the new-client page: cancellation and lateness, payment methods, parking and how to enter the home studio, age rule for tweens (parent present?), and whether mobile service has a travel fee.
-3. Check the "at the studio" step of the appointment walkthrough on `new-clients.html`. It's written from standard sugaring practice, not from Pamela.
-4. The 2024 price sheet in Drive lists services the site doesn't: hydrojelly mask add-on after Brazilian/bikini, "Feel Your Skin Pampered" and "Nurtured" treatments, PCOS facial hair removal, five-session packages, first-visit aftercare gift. Still offered?
-5. The review offer says "$10 off for a Google review." Google's policy forbids incentivized reviews. Suggest rewording to a thank-you after the fact, and ask Pamela how she wants it handled.
+1. The review offer says "$10 off for a Google review." Google's policy forbids incentivized reviews. Suggest rewording to a thank-you after the fact, and ask Pamela how she wants it handled.
+
+Settled 2026-10-19: the hips logo may be used (no placement chosen yet). Policies (cancellation, payment, parking, tween age rule, mobile travel fee) stay off the site; clients sort them out with Pamela directly.
 
 ## Google Business Profile: findings and suggestions
 

@@ -46,7 +46,7 @@ Most clients find Pamela through Google Maps while searching for sugaring or hai
 
 ## Open questions for Pamela
 
-- Whether to use the hips logo anywhere.
-- Cancellation, lateness and payment policies, parking and entry instructions, and age policy for tweens: none of these are on the old site, so the new-client page doesn't state them.
+See HANDOFF.md for the current list. Standing decisions: the hips logo may be used; policies (cancellation, payment, parking, tween age rule) stay off the site and are handled with Pamela directly.
+
 - The step-by-step description of what happens during an appointment on `new-clients.html` is written from standard sugaring practice and should be checked against what Pamela actually does.
 - The 2024 pricing spreadsheet in Drive lists services the site doesn't (hydrojelly mask add-on, skin treatments, PCOS facial, five-session packages, first-visit aftercare gift). Are any still offered?
