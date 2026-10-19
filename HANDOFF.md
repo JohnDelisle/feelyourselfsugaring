@@ -13,9 +13,9 @@ Read this with CLAUDE.md. CLAUDE.md holds the standing rules and layout; this fi
 
 ## Waiting on John
 
-- Cloudflare Web Analytics: create a free Cloudflare account, add the site under Web Analytics, and put the token in `CF_BEACON` in `build.py`.
 - Google Form: paste the custom confirmation message (drafted 2026-10-19) into the client profile form's settings.
 - At cutover: submit `sitemap.xml` in Google Search Console. The share image, sitemap and robots.txt only start working then.
+- At cutover: in Cloudflare Web Analytics, add a site for `feelyourselfsugaring.com` and put its token in `CF_BEACON`. The current token is for the github.io site and won't count visits on the real domain.
 
 ## Open questions for Pamela
 

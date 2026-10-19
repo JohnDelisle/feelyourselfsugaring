@@ -10,7 +10,7 @@ PHONE = "204-557-5197"
 INSTAGRAM = "https://www.instagram.com/feelyourselfsugaring/"
 MAPS = "https://maps.google.com/?cid=16458464166340835351"          # public Google Maps listing
 REVIEW = "https://g.page/r/CRe4PWf1NWjkEBM/review"                 # "write a review" link from the Business Profile
-CF_BEACON = ""                                                    # Cloudflare Web Analytics token; empty = no analytics
+CF_BEACON = "ba2f9fcbd607468fbcabdb14dde3a71d"                    # Cloudflare Web Analytics token (johndelisle.github.io site); empty = no analytics
 FORM = "https://docs.google.com/forms/d/e/1FAIpQLSeQs9sJO3A9PlhY3qhilEIwmsSzeXqD-X9Zkp8nebxhRqmKyg/viewform"
 
 # Brand mark: echoes Pamela's two-hearts logo.
@@ -158,7 +158,7 @@ def build(outdir):
         book_cur = ' aria-current="page"' if slug=="book-now.html" else ""
         full_title = "Feel Yourself Sugaring | Sugaring hair removal in Winnipeg" if slug=="index.html" else f"{title} | Feel Yourself Sugaring"
         url = SITE if slug=="index.html" else SITE + slug.replace(".html","")
-        beacon = (f"\n<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" "
+        beacon = (f"\n<script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon.min.js\" "
                   f"data-cf-beacon='{{\"token\": \"{CF_BEACON}\"}}'></script>") if CF_BEACON else ""
         return f'''<!doctype html>
 <html lang="en-CA">
