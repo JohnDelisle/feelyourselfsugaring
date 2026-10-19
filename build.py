@@ -10,6 +10,7 @@ PHONE = "204-557-5197"
 INSTAGRAM = "https://www.instagram.com/feelyourselfsugaring/"
 MAPS = "https://maps.google.com/?cid=16458464166340835351"          # public Google Maps listing
 REVIEW = "https://g.page/r/CRe4PWf1NWjkEBM/review"                 # "write a review" link from the Business Profile
+CF_BEACON = ""                                                    # Cloudflare Web Analytics token; empty = no analytics
 FORM = "https://docs.google.com/forms/d/e/1FAIpQLSeQs9sJO3A9PlhY3qhilEIwmsSzeXqD-X9Zkp8nebxhRqmKyg/viewform"
 
 # Brand mark: echoes Pamela's two-hearts logo.
@@ -155,8 +156,10 @@ def build(outdir):
         nav = "\n".join(
             f'<a href="{h}"{" aria-current=\"page\"" if h==slug else ""}>{t}</a>' for h,t in NAV)
         book_cur = ' aria-current="page"' if slug=="book-now.html" else ""
-        full_title = "Feel Yourself Sugaring" if slug=="index.html" else f"{title} | Feel Yourself Sugaring"
+        full_title = "Feel Yourself Sugaring | Sugaring hair removal in Winnipeg" if slug=="index.html" else f"{title} | Feel Yourself Sugaring"
         url = SITE if slug=="index.html" else SITE + slug.replace(".html","")
+        beacon = (f"\n<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" "
+                  f"data-cf-beacon='{{\"token\": \"{CF_BEACON}\"}}'></script>") if CF_BEACON else ""
         return f'''<!doctype html>
 <html lang="en-CA">
 <head>
@@ -168,8 +171,16 @@ def build(outdir):
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url}">
+<meta property="og:image" content="{SITE}images/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pamela sugaring a client's leg, beside the Feel Yourself Sugaring logo">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{url}">
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,11 +193,11 @@ def build(outdir):
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="index.html">{HEARTS}Feel Yourself Sugaring</a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
 {nav}
-<a class="btn" href="book-now.html"{book_cur}>Book now</a>
     </nav>
+    <a class="btn header-book" href="book-now.html"{book_cur}>Book now</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
   </div>
 </header>
 <main id="main">
@@ -216,7 +227,7 @@ def build(outdir):
     <p class="land">Feel Yourself Sugaring is located on Treaty 1 Territory, the stolen land of the Anishinaabe, Cree, Oji-Cree, Dakota and Dene peoples, and the homeland of the Métis Nation.</p>
   </div>
 </footer>
-<script src="script.js"></script>
+<script src="script.js"></script>{beacon}
 </body>
 </html>
 '''
@@ -236,7 +247,7 @@ def build(outdir):
 </section>'''
 
     pages["index.html"] = page("index.html","Home",
-     "Gentle, unrushed sugaring hair removal in a home studio beside Assiniboine Forest in Winnipeg. Everyone welcome.",
+     "Gentle, unrushed sugaring hair removal in Winnipeg, a gentler alternative to waxing. Home studio beside Assiniboine Forest. Everyone welcome.",
     f'''<section class="hero">
   <div class="wrap">
     <div>
@@ -461,7 +472,7 @@ def build(outdir):
         dl = "\n".join(f"<div><dt>{a}</dt><dd>{b}</dd></div>" for a,b in items)
         gh += f'<div class="group"><h2>{g}</h2>\n<dl class="perks">\n{dl}\n</dl></div>\n'
     pages["why-sugar.html"] = page("why-sugar.html","Why sugar",
-     "Why sugaring beats waxing and shaving: gentler on skin, fewer ingrown hairs, and results that build over time.",
+     "Sugaring is a gentler alternative to waxing and shaving: kinder to sensitive skin, fewer ingrown hairs, and results that build over time.",
     f'''<section class="page-head">
   <div class="wrap">
     <div class="with-photo">
@@ -556,6 +567,7 @@ def build(outdir):
 <section class="section rule" id="form">
   <div class="wrap">
     <h2>Client Profile and Consent Form</h2>
+    <p class="muted">Your answers go only to Pamela. She uses them to sugar you safely, because your health history, skin and medications affect how she works. They're kept in the business's Google account and never shared or sold. Text Pamela any time to see, correct or delete what you've sent.</p>
     <p>Trouble with the form? <a href="{FORM}">Open it in a new tab</a>.</p>
     <iframe class="form-frame" src="{FORM}?embedded=true" title="Client Profile and Consent Form" loading="lazy"></iframe>
   </div>
@@ -575,13 +587,23 @@ def build(outdir):
 <p class="lead">That page doesn't exist, or it moved when the site was rebuilt.</p>
 <div class="actions"><a class="btn btn-primary" href="/">Go to the home page</a><a class="btn" href="/book-now">Book an appointment</a></div></div></section>''')
     # 404 is served from any path, so it needs root-relative asset links
-    nf = nf.replace('href="styles.css"','href="/styles.css"').replace('src="script.js"','src="/script.js"').replace('href="favicon.png"','href="/favicon.png"').replace('href="apple-touch-icon.png"','href="/apple-touch-icon.png"')
+    nf = nf.replace('href="styles.css"','href="/styles.css"').replace('src="script.js"','src="/script.js"').replace('href="favicon','href="/favicon').replace('href="apple-touch-icon.png"','href="/apple-touch-icon.png"')
     nf = re.sub(r'href="([a-z0-9-]+\.html)', r'href="/\1', nf)
     pages["404.html"] = nf
+
+    # Search engines: only meaningful at the domain root, so these start working at cutover
+    urls = "\n".join(f"  <url><loc>{SITE if n=='index.html' else SITE + n.replace('.html','')}</loc></url>"
+                     for n in pages if n not in ("home.html","why-us.html","404.html"))
+    pages["sitemap.xml"] = f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{urls}
+</urlset>
+'''
+    pages["robots.txt"] = f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n"
 
     os.makedirs(outdir, exist_ok=True)
     for name, html in pages.items():
         open(os.path.join(outdir, name), "w", encoding="utf-8", newline="\n").write(html)
-    print(f"built {len(pages)} pages in {outdir}")
+    print(f"built {len(pages)} files in {outdir}")
 
 build(SITE_DIR)

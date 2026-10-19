@@ -6,7 +6,7 @@ Static website for Feel Yourself Sugaring, a home-based sugaring business in Win
 
 ## Layout
 
-- `docs/` is the published site, served by GitHub Pages from `main` + `/docs`. Everything in it except `images/`, `favicon.png`, `apple-touch-icon.png`, `styles.css`, `script.js` and `.nojekyll` is generated.
+- `docs/` is the published site, served by GitHub Pages from `main` + `/docs`. Everything in it except `images/`, `favicon.ico`, `favicon-48/96/192.png`, `apple-touch-icon.png`, `styles.css`, `script.js` and `.nojekyll` is generated, including `sitemap.xml` and `robots.txt`.
 - `build.py` at the root generates `docs/`. `media/` holds working materials. `README.md` and this file stay at the root.
 - All of `media/` is committed, about 400 MB, on purpose: John wants the artifacts kept together in case the Google Drive copy is lost one day. The source was the business Google Drive, account john@feelyourselfsugaring.com, folder `FYS Media`. Don't add a gitignore for it.
 
@@ -19,7 +19,9 @@ Static website for Feel Yourself Sugaring, a home-based sugaring business in Win
 - Page filenames match the old Google Sites URLs (`/our-sugarist`, `/book-now`, etc.). Don't rename them. `home.html` and `why-us.html` are redirects for old links. `prices.html` and `new-clients.html` are new pages added in October 2026.
 - Booking happens by text (204-557-5197) plus an embedded Google Form for the client profile.
 - Google: the public Maps listing is `MAPS` in `build.py` (CID link; 5.0 stars, 89 reviews as of 2026-10-11; category "Hair removal service") and the write-a-review short link is `REVIEW` (from the Business Profile's "Ask for reviews" dialog). John's Business Profile dashboard is https://business.google.com/n/540640849903216367/profile (signed-in only; never link to it).
-- Photos go in `docs/images/`, and only images the pages use live there. Missing photos show labelled placeholders. `pamela.jpg` and `studio-1/2/3.jpg` were cropped from the old Google Sites pages on 2026-10-10; full-resolution originals are in `media/photos/`. Logos are in `media/brand/`. Unused hero candidates and logo copies were removed from `docs/images/` on 2026-10-19 and are in git history.
+- Photos go in `docs/images/`, and only images the pages use live there. Missing photos show labelled placeholders. `pamela.jpg` and `studio-1/2/3.jpg` were cropped from the old Google Sites pages on 2026-10-10; full-resolution originals are in `media/photos/`. Logos are in `media/brand/`. Unused hero candidates and logo copies were removed from `docs/images/` on 2026-10-19 and are in git history. Published photos are sized to about twice their largest display size and saved at JPEG quality 82 with metadata stripped; resize new ones the same way. `share.jpg` (1200x630) is the social share image for every page.
+- Search and sharing: `og:image`, `sitemap.xml` and `robots.txt` all use the www domain (`SITE`), so they only work once the domain points at GitHub Pages.
+- Analytics: Cloudflare Web Analytics (cookieless, no banner needed). Set `CF_BEACON` in `build.py` to the site token to turn it on; empty means no analytics script.
 - Brand: two logos (hearts and hips), both by Pamela, in `media/brand/`. Brand colours from the old site's CSS: near-black #1C1C1C, blush #FACBD0, hot pink #F385AA, white; teal #1A9DA8 appears in the old banners. The favicon is Pamela's hearts mark.
 
 ## Design (chosen by Pamela, 2026-10-19)

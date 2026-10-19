@@ -9,6 +9,14 @@ Read this with CLAUDE.md. CLAUDE.md holds the standing rules and layout; this fi
 - Pamela has seen the first version and liked the tighter content and structure. She didn't love the yellow honey blob on the home page. She's worried the tightened copy drops messages she cares about (educating new clients, setting expectations).
 - **2026-10-19: Pamela chose her design** (shared as the link `variants/prices-page/advice.html?theme=noir&hero=pamela&photos=more`): noir theme, the photo of her sugaring a leg as the home hero, the inner-page photos, and prices on their own page. That's now the only version. The other themes, hero options, the `variants/` build and the preview switcher are gone; CLAUDE.md's "Design" section has the details. Old `variants/prices-page/...` links now 404.
 
+- **2026-10-19: launch checklist round.** John went through an 18-item "real website" checklist from Instagram. Done: favicon set (ico + 48/96/192), share image (`images/share.jpg`), sitemap.xml and robots.txt, home title with "Sugaring hair removal in Winnipeg", "gentler alternative to waxing" in the home and Why sugar descriptions, Book now always visible in the header on phones, photos resized (about 1 MB lighter in total), a privacy note above the client profile form, and a Cloudflare analytics slot. Checked in Chrome: no sideways scrolling on any page from 320px to 1440px. Decided against: moving the home hero photo on phones (the header button covers it), a cookie banner (no cookies), an email address, and a separate privacy page.
+
+## Waiting on John
+
+- Cloudflare Web Analytics: create a free Cloudflare account, add the site under Web Analytics, and put the token in `CF_BEACON` in `build.py`.
+- Google Form: paste the custom confirmation message (drafted 2026-10-19) into the client profile form's settings.
+- At cutover: submit `sitemap.xml` in Google Search Console. The share image, sitemap and robots.txt only start working then.
+
 ## Open questions for Pamela
 
 1. Whether the hips logo should appear anywhere.
@@ -16,6 +24,7 @@ Read this with CLAUDE.md. CLAUDE.md holds the standing rules and layout; this fi
 3. Check the "at the studio" step of the appointment walkthrough on `new-clients.html`. It's written from standard sugaring practice, not from Pamela.
 4. The 2024 price sheet in Drive lists services the site doesn't: hydrojelly mask add-on after Brazilian/bikini, "Feel Your Skin Pampered" and "Nurtured" treatments, PCOS facial hair removal, five-session packages, first-visit aftercare gift. Still offered?
 5. The review offer says "$10 off for a Google review." Google's policy forbids incentivized reviews. Suggest rewording to a thank-you after the fact, and ask Pamela how she wants it handled.
+6. Approve the privacy note above the form on Book now. It promises answers go only to her, are kept in the business Google account, are never shared or sold, and can be seen, corrected or deleted on request by text. Is that all true?
 
 ## Google Business Profile: findings and suggestions
 
